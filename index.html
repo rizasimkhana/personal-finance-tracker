@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- linking output file -->
+    <link rel="stylesheet" href="./src/output.css">
+    <title>Expense calculator</title>
+    <link rel="icon" href="./images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+
+<body class="p-0 b-0 m-0 box-border">
+    <header class="bg-black flex">
+        <div class="flex">
+            <img src="./images/logo.png" class="w-auto h-16 flex">
+            <h1 class="p-5 ml-5 text-base capitalize whitespace-nowrap text-red-700">personal finance tracker</h1>
+        </div>
+    </header>
+    <div class="text-lg font-semibold mb-4">
+        <p class="text-center">Net Balance: <span id="net-balance" class="text-xl font-bold before:content-['\20B9']">0</span></p>
+        <p class="text-center">Total Income: <span id="total-income" class="text-xl font-bold before:content-['\20B9']">0</span></p>
+        <p class="text-center">Total expense: <span id="total-expenses" class="text-xl font-bold before:content-['\20B9']">0</span></p>
+    </div>
+    <section>
+        <div class="container mx-auto bg-slate-500 mt-14 text-center">
+            <div class="bg-slate-50 shadow-lg">
+                <label for="filter" class="text-red-400 text-sm">Filter
+               <select id="filter" class="bg-purple-400 text-center">
+                        <option value="all">All</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select></label>
+           <form id="transaction-form">
+                    <div class="grid grid-rows-6">
+                        <label for="type" class="text-blue-700 font-bold">Type</label>
+                        <select id="type" class="bg-purple-400 text-center">
+                            <option value="income">Income</option>
+                            <option value="expense">Expense</option>
+                        </select>
+                        <label for="description" class="text-blue-700 font-bold">Description</label>
+                        <input type="text" id="description"
+                            class=" border-black border-2 bg-slate-200 placeholder:text-red-400 text-center"
+                            placeholder="Enter Description Of Expense" required>
+                        <label for="amount" class="text-blue-700 font-bold">Amount</label>
+                        <input type="number" id="amount"
+                            class="border-black border-2 bg-slate-200 placeholder:text-red-400 text-center"
+                            placeholder="Enter Amount" required>
+                    </div>
+                    <button type="submit"  class="bg-red-700 mt-8 p-4 text-white mb-8 rounded-full" id="update">Add Expense</button>
+                    <button type="reset" class="bg-red-700 mt-8 p-4 text-white mb-8 rounded-full">Reset</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section>
+        <table class="w-[88%] m-auto mt-12 border-collapse">
+            <thead class="bg-black">
+                <th class="text-orange-500">Type</th>
+                <th class="text-orange-500">Amount</th>
+                <th class="text-orange-500">Description</th>
+                <th class="text-orange-500">Date</th>
+                <th class="text-orange-500">Action</th>
+            </thead>
+            <tbody id="transaction-table" class="text-sm">
+            </tbody>
+        </table>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
